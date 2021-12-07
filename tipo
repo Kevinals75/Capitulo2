@@ -1,0 +1,31 @@
+/*
+  Prácticas Capítulo 2 "Prácticas de ASM RaspberryPi
+  Nombre:Kevin Enrique Figueroa Mazo  nickname:Kevinals75  19211638
+  Fecha: 06/12/2021
+  Tipos
+*/
+.data
+.text
+
+.global main
+main:
+		/*Se cargan los contenidos en la meoria*/
+		ldr r1, = a
+		ldr r1, [ r1 ]
+		ldr r2, = b
+		ldr r2, [ r2 ]
+
+		/*Comparaciones*/
+		cmp r1, r2
+		bne sino
+entonces :
+		/*r1 toma el valor de 10*/
+		r1, #10
+/*Saltamos a Final*/
+b fina
+sino :
+		/*r1 toma el valor de 5*/
+		r1, #5
+fina : 
+	
+		bx lr
