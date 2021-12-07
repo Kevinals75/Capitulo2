@@ -18,7 +18,7 @@ main:
 process:
         ldr r3, [ r2 ] , # 4 //Condicion de salida
         add     r1, r1, r3 //Suma del arreglo
-        subs    r0, r0, #1 //Incremento de la iteración
+        subs    r0, r0, #1 //Incremento
         bne     process 
 
         ldr     r0, = var1 //seccion de print
