@@ -5,7 +5,7 @@
   Suma de los elementos de un arreglo
 */
 .data 
-        var1 : .asciz "El resultante de la adicion  es %d \n"
+        var1 : .asciz "El resultante de la adicion  es: %d \n"
         var : .word 128, 32, 100, - 30, 124
 .text
 .global main
