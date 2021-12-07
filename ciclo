@@ -1,0 +1,23 @@
+/*
+  Prácticas Capítulo 2 "Prácticas de ASM RaspberryPi
+  Nombre:Kevin Enrique Figueroa Mazo  nickname:Kevinals75  19211638
+  Fecha: 06/12/2021
+*/
+.text
+.global _start
+
+_start:
+        mov     r1, #7 //asignar el valor de 7 a r1
+        mov     r2, #4 //asignar 4 a r2
+        //se hace una llamada
+        b       bucle  
+gr:
+        cmp     r1, r2 //Comparativa entre ambos registros
+        bhi     salir 
+        mov     r0, r1 //Proyección de resultados
+        add     r1, r1, # 1 //Incremento del bucle
+        //segmento recursivo
+        b       gr 
+exit:
+        mov     r7, #1 //Sentencia de salida
+        svc     0
