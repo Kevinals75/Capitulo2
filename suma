@@ -1,0 +1,28 @@
+/*
+  Prácticas Capítulo 2 "Prácticas de ASM RaspberryPi
+  Nombre:Kevin Enrique Figueroa Mazo  nickname:Kevinals75  19211638
+  Fecha: 06/12/2021
+  Suma de los elementos de un arreglo
+*/
+.data 
+        var1 : .asciz "El resultante de la adicion  es %d \n"
+        var : .word 128, 32, 100, - 30, 124
+.text
+.global main
+main:
+        push { r4, lr } //Guardando registros
+        mov     r0, # 5 //complejo para la asignacion del valor  5 a r0
+        mov     r1, # 0 //se asigna 0 a r1
+        ldr     r2, = var//se carga el contenido a  var
+
+process:
+        ldr r3, [ r2 ] , # 4 //Condicion de salida
+        add     r1, r1, r3 //Suma del arreglo
+        subs    r0, r0, #1 //Incremento de la iteración
+        bne     process 
+
+        ldr     r0, = var1 //seccion de print
+        bl      printf
+
+        pop     { r4, lr } //saca de la pila
+        bx      lr
